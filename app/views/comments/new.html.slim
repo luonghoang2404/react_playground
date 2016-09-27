@@ -1,0 +1,7 @@
+h1 New Comment
+
+= simple_form_for @comment do |t|
+  = t.input :author
+  = t.input :text
+  = t.button :submit
+= link_to 'Back', comments_path

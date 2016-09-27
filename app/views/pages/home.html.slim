@@ -1,0 +1,3 @@
+.container
+  = react_component 'Main'
+  / = react_component 'Main', { employees_header: @employees.columns, employees_data: @employees.rows, departments_header: @departments.columns, departments_data: @departments.rows, departments_filter: @departments_filter, limit: @limit }

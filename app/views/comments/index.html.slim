@@ -1,0 +1,25 @@
+- data = [{id: 1, author: "Pete Hunt", text: "This is one comment"},
+  {id: 2, author: "Jordan Walke", text: "This is *another* comment"}]
+= react_component 'CommentBox', url: "/comments", pollInterval: 2000
+br
+
+
+/ p#notice = notice
+/ 
+/ h1 Comments
+/ 
+/ table.table
+/   thead
+/     tr
+/       th colspan="5"
+/   tbody
+/     -@comments.each do |comment|
+/       tr
+/         td = link_to 'Show', comment
+/         td = comment.author
+/         td = comment.text
+/         td = link_to 'Edit', edit_comment_path(comment)
+/         td = link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }
+/ br
+/ 
+/ = link_to 'New Comment', new_comment_path
