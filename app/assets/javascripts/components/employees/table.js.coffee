@@ -43,7 +43,7 @@ RC = React.createElement
       R.div
         className: 'panel-body'
         R.table
-          className: 'table table-condensed'
+          className: 'table table-condensed table-striped'
           R.thead null,
             R.tr
               className: 'info'
