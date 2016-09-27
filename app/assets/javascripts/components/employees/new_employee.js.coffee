@@ -19,15 +19,16 @@ RC = React.createElement
       url: '/employees'
       data: {employee: @state}
       success: ((data) ->
+        console.log(data.record)
         @setState @getInitialState()
-        @props.updateSignal data
+        @props.updateSignal data.record
         ).bind(this)
 
 
   render: ->
     R.form
       onSubmit: @handleSubmit
-      className: 'form-inline pull-right'
+      className: 'form-inline'
       R.div
         className: 'form-group'
         R.input

@@ -3,7 +3,7 @@ class EmployeesController < ApplicationController
     @department = Department.find(params[:employee][:department_id])
     @manager = @department.employees.find_by(manager_id: nil)
     @employee = @department.employees.create(name: params[:employee][:name], manager_id: @manager.id)
-    render json: {id: @employee.id, name: @employee.name, manager: @manager.name, department: @department.name}
+    render json: {record: [@employee.id, @employee.name, @manager.name, @department.name]}
   end
 
   def index

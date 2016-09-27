@@ -4,6 +4,7 @@ RC = React.createElement
   getInitialState: ->
     selected: 'All'
     limit: 0
+    add_new: false
 
   updateFilter: (new_filter_value)->
     @setState selected: new_filter_value
@@ -13,19 +14,37 @@ RC = React.createElement
 
   handleUpdateSignal: (data) ->
     @props.new_employee data
+    @toggle_new()
+
+  toggle_new: ->
+    value = !@state.add_new
+    @setState add_new: value
 
   render: ->
     R.div null,
       R.h1 null,
         @props.name
       if @props.name != 'department'
-        RC NewEmployee, departments: @props.data_for_filter, updateSignal: @handleUpdateSignal
-      R.div
-        className: 'panel-success'
-        if @props.name == 'department'
-          RC Slider, limit: @state.limit, updateLimit: @updateLimit, limit: @props.limit
+        R.button
+          className: 'btn btn-default pull-right'
+          onClick: @toggle_new
+          if @state.add_new
+            'Cancel'
+          else
+            'Add New'
+      if @props.name != 'department'
+        if @state.add_new
+          RC NewEmployee, departments: @props.data_for_filter, updateSignal: @handleUpdateSignal
         else
           RC Filter, data: @props.data_for_filter, selected: @state.selected, changeFilter: @updateFilter
+      else
+        RC Slider, limit: @state.limit, updateLimit: @updateLimit, limit: @props.limit
+      # R.div
+      #   className: 'panel-success'
+      #   if @props.name == 'department'
+          
+      #   else
+          
             ,
       R.hr
       R.table

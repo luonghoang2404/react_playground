@@ -22,7 +22,6 @@ RC = React.createElement
         @setState departments_data: data.departments_data
         @setState employees_data: data.employees_data
         @setState employees_header: data.employees_header
-        console.log(@state.departments_header)
         return
       ).bind(this)
 
@@ -33,7 +32,18 @@ RC = React.createElement
 
 
   handleNewEmployee: (employee)->
-    @loadCommentFromServer()
+    employees = @state.employees_data
+    employees.unshift(employee)
+    @setState employees_data: employees
+
+    departments = @state.departments_data
+    i = 0
+    while departments[i][1] != employee[3]
+      i += 1
+    
+    departments[i][3] += 1
+    @setState departments_data: departments
+    # @loadCommentFromServer()
 
   render: ->
     R.div null,
