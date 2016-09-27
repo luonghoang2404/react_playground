@@ -21,47 +21,42 @@ RC = React.createElement
     @setState add_new: value
 
   render: ->
-    R.div null,
-      R.h1 null,
-        @props.name
-      if @props.name != 'department'
-        R.button
-          className: 'btn btn-default pull-right'
-          onClick: @toggle_new
-          if @state.add_new
-            'Cancel'
-          else
-            'Add New'
-      if @props.name != 'department'
-        if @state.add_new
-          RC NewEmployee, departments: @props.data_for_filter, updateSignal: @handleUpdateSignal
-        else
-          RC Filter, data: @props.data_for_filter, selected: @state.selected, changeFilter: @updateFilter
-      else
-        RC Slider, limit: @state.limit, updateLimit: @updateLimit, limit: @props.limit
-      # R.div
-      #   className: 'panel-success'
-      #   if @props.name == 'department'
-          
-      #   else
-          
-            ,
-      R.hr
-      R.table
-        className: 'table table-condensed'
-        R.thead null,
-          R.tr
-            className: 'info'
-            for head, index in @props.header
-              R.th
-                key: index
-                R.h4 null,
-                  head
-        R.tbody null,
-          for row in @props.data
-            if @props.name == 'department'
-              if row[3] >= @state.limit
-                RC Row, key: row[0], data: row
+    R.div
+      className: 'panel panel-success'
+      R.div
+        className: 'panel-heading'
+        if @props.name != 'department'
+          R.button
+            className: 'btn btn-primary pull-right'
+            onClick: @toggle_new
+            if @state.add_new
+              'Cancel'
             else
-              if @state.selected=='All' || @state.selected==row[3]
-                RC Row, key: row[0], data: row
+              'Add New'
+        if @props.name != 'department'
+          if @state.add_new
+            RC NewEmployee, departments: @props.data_for_filter, updateSignal: @handleUpdateSignal
+          else
+            RC Filter, data: @props.data_for_filter, selected: @state.selected, changeFilter: @updateFilter
+        else
+          RC Slider, limit: @state.limit, updateLimit: @updateLimit, limit: @props.limit
+      R.div
+        className: 'panel-body'
+        R.table
+          className: 'table table-condensed'
+          R.thead null,
+            R.tr
+              className: 'info'
+              for head, index in @props.header
+                R.th
+                  key: index
+                  R.h4 null,
+                    head
+          R.tbody null,
+            for row in @props.data
+              if @props.name == 'department'
+                if row[3] >= @state.limit
+                  RC Row, key: row[0], data: row
+              else
+                if @state.selected=='All' || @state.selected==row[3]
+                  RC Row, key: row[0], data: row

@@ -6,5 +6,5 @@ RC = React.createElement
       for item, index in @props.data
         R.td
           key: index
-          R.h6 null,
+          R.h4 null,
             item

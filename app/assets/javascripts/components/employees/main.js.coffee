@@ -16,12 +16,9 @@ RC = React.createElement
       dataType: 'json'
       cache: false
       success: ((data) ->
-        @setState limit: data.limit
-        @setState departments_header: data.departments_header
-        @setState departments_filter: data.departments_filter
-        @setState departments_data: data.departments_data
-        @setState employees_data: data.employees_data
-        @setState employees_header: data.employees_header
+        @setState limit: data.limit, departments_header: data.departments_header, 
+        departments_filter: data.departments_filter,departments_data: data.departments_data, 
+        employees_data: data.employees_data, employees_header: data.employees_header
         return
       ).bind(this)
 
@@ -49,19 +46,19 @@ RC = React.createElement
     R.div null,
       R.div
         className: "nav-tabs-custom"
-        R.ul
-          className: "nav nav-tabs"
-          R.li
-            className: 'active'
-            R.a
-              href:'#tab1'
-              'data-toggle': 'tab'
-              'Employees'
-          R.li null,
-            R.a
-              href:'#tab2'
-              'data-toggle': 'tab'
-              'Department'
+        # R.ul
+        #   className: "nav nav-tabs"
+        #   R.li
+        #     className: 'active'
+        #     R.a
+        #       href:'#tab1'
+        #       'data-toggle': 'tab'
+        #       'Employees'
+        #   R.li null,
+        #     R.a
+        #       href:'#tab2'
+        #       'data-toggle': 'tab'
+        #       'Department'
         R.div
           className: 'tab-content'
           R.div

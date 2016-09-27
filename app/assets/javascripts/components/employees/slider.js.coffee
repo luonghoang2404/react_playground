@@ -14,7 +14,7 @@ RC = React.createElement
 
   render: ->
     R.div null,
-      R.p null,
+      R.h4 null,
         "Minimum number of employees: #{@state.limit}"
       R.input
         type: 'range'
