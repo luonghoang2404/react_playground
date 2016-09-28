@@ -28,7 +28,7 @@ RC = React.createElement
       R.div
         className: 'form-group'
         R.input
-          type: 'text'
+          type: 'date'
           className: 'form-control'
           placeholder: 'Date'
           name: 'date'

@@ -48,7 +48,7 @@
       React.createElement RecordForm, handleNewRecord: @addRecord
       React.DOM.hr null
       React.DOM.table
-        className: 'table table-bordered'
+        className: 'table table-striped'
         React.DOM.thead null,
           React.DOM.tr
             className: 'info'
