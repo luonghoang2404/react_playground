@@ -16,7 +16,7 @@ class EmployeesController < ApplicationController
                     from departments
                     join employees managers on managers.department_id = departments.id
                     join employees subodinates on subodinates.manager_id = managers.id
-                    group by 1,2
+                    group by 1,2,3
                     order by 4"
     sql_filter = "SELECT id, name FROM departments"
     @departments_filter = ActiveRecord::Base.connection.exec_query(sql_filter).to_hash
