@@ -1,20 +1,17 @@
-nav.navbar.navbar-default
-  .container-fluid
-    .navbar-header
-      button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a.navbar-brand React Test
-    #navbar.navbar-collapse.collapse
-      ul.nav.navbar-nav
-        li.active
-          a href="#tab1" data-toggle="tab" Employees
-        li
-          a href="#tab2" data-toggle='tab' Departments
-
-= react_component 'Main'
-
-
+- provide(:title, "Home | React playground")
+.row
+  .col-md-4
+    .panel.panel-default
+      .panel-heading
+        h1 Expense Tracking
+      .panel-body
+        p A small application from scratch to keep track of our expenses; each record will consist of a date, a title and an amount. A record will be treated as Credit if its amount is greater than zero, otherwise it will be treated as Debit.
+        = link_to 'View',records_path, class: 'btn btn-lg btn-info btn-block'
+  .col-md-4
+    .panel.panel-default
+      .panel-heading
+        h1 Employees
+      .panel-body
+        p Simple employees management table, each employee belongs to one department & has one manager.
+        = link_to 'View', departments_path, class: 'btn btn-lg btn-danger btn-block'
 

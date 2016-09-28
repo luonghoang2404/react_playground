@@ -1,0 +1,21 @@
+- provide(:title, "Employees management")
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand React Test
+    #navbar.navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li.active
+          a href="#tab1" data-toggle="tab" Employees
+        li
+          a href="#tab2" data-toggle='tab' Departments
+
+= react_component 'Main'
+
+
+
