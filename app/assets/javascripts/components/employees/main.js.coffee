@@ -25,9 +25,6 @@ RC = React.createElement
   componentDidMount: ->
     @loadCommentFromServer()
 
-    # setInterval @loadCommentFromServer, @props.pollInterval
-
-
   handleNewEmployee: (employee)->
     employees = @state.employees_data
     employees.unshift(employee)

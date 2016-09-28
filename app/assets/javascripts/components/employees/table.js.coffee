@@ -14,6 +14,7 @@ RC = React.createElement
 
   handleUpdateSignal: (data) ->
     @props.new_employee data
+    @setState selected: 'All'
     @toggle_new()
 
   toggle_new: ->
