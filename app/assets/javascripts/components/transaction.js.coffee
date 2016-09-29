@@ -1,4 +1,4 @@
-{ div, h3, h4, h5, table, thead, tbody, tr, th, td, a, i, input, select, option, span, button, img } = React.DOM
+{ label, form, div, h3, h4, h5, table, thead, tbody, tr, th, td, a, i, input, select, option, span, button, img } = React.DOM
 R = React.DOM
 RC = React.createElement
 
@@ -22,27 +22,14 @@ RC = React.createElement
     else
       @setState tick: "", share: 0
   render: ->
-    R.tr null,
-      R.td null,
-        R.label null,
-          @props.name
-      
-      R.td null,
+    tr null,
+      td null,
+        label null, @props.name,
+      td null,
         if @props.advanced
-          R.input
-            className: 'pull-right btn-block'
-            type:'number'
-            value: @state.share
-            placeholder: 'Share'
-            onChange: @handleChangeShare
-      R.td null,
-        R.input
-          className: 'pull-right btn-block'
-          type:'number'
-          value: @props.base * @state.share
-          placeholder: 'Amount'
-          onChange: @handleChange
-
+          input className: 'pull-right btn-block', type:'number', value: @state.share, placeholder: 'Share', onChange: @handleChangeShare
+      td null,
+        input className: 'pull-right btn-block', type:'number', value: @props.base * @state.share, placeholder: 'Amount', onChange: @handleChange
 
 @Transaction = React.createClass
   getInitialState: ->
@@ -56,7 +43,6 @@ RC = React.createElement
     categories: ''
     group_id: ''
     note: ''
-
 
   componentDidMount: ->
     @setState base_amount: @state.amount/@state.split
@@ -83,52 +69,23 @@ RC = React.createElement
     @setState advanced: !@state.advanced
 
   render: ->
-    R.form
-      className: 'box new-entry-form entry-form'
-      R.div
-        className: 'form-group'
-        R.label
-          className: 'control-label'
-          'What for?'
-        R.input
-          className: 'form-control'
-          type: 'text'
-          value: ''
-          onChange: @handleChange
-      R.div
-        className: 'form-group'
-        R.label
-          className: 'control-label'
-          'How much?'
-        R.div
-          className: 'input-group'
-          R.div
-            className: 'input-group-addon'
-            R.span
-              className: 'currency-symbol'
-              'đ'
-          R.input
-            className: 'form-control'
-            type: 'number'
-            value: @state.amount
-            onChange: @changeAmount
-      R.div
-        className: 'form-group'
-        R.label
-          className: 'control-label'
-          'Split between:'
-        R.button
-          className: 'btn btn-default btn-info pull-right btn-xs'
-          onClick: @toggleAdvance
-          if @state.advanced
-            'Simple'
-          else
-            'Advanced'
-        R.div
-          className: 'checkbox'
-          R.table
-            className: 'table table-condensed'
-            R.tbody null,
+    form className: 'box new-entry-form entry-form',
+      div className: 'form-group',
+        label className: 'control-label', 'What for?',
+        input className: 'form-control', type: 'text', value: '', onChange: @handleChange
+      div className: 'form-group',
+        label className: 'control-label', 'How much?',
+        div className: 'input-group',
+          div className: 'input-group-addon',
+            span className: 'currency-symbol', 'đ',
+          input className: 'form-control', type: 'number', value: @state.amount, onChange: @changeAmount,
+      div className: 'form-group',
+        label className: 'control-label', 'Split between:'
+        button className: 'btn btn-default btn-info pull-right btn-xs', onClick: @toggleAdvance,
+          if @state.advanced then 'Simple' else 'Advanced'
+        div className: 'checkbox',
+          table className: 'table table-condensed',
+            tbody null,
               RC Checkbox, name: 'Hoang', advanced: @state.advanced, base: @state.base_amount, setShare: @handleShare
               RC Checkbox, name: 'Huy', advanced: @state.advanced, base: @state.base_amount, setShare: @handleShare
               RC Checkbox, name: 'Trung', advanced: @state.advanced, base: @state.base_amount, setShare: @handleShare
