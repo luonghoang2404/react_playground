@@ -1,4 +1,4 @@
-R = React.DOM
+{ form, div, h3, h4, h5, table, thead, tbody, tr, th, td, a, i, input, select, option, span, button, img } = React.DOM
 RC = React.createElement
 
 @RecordForm = React.createClass
@@ -20,40 +20,16 @@ RC = React.createElement
       @setState @getInitialState()
       , 'JSON'
 
-
   render: ->
-    R.form
-      className: 'form-inline'
-      onSubmit: @handleSubmit
-      R.div
-        className: 'form-group'
-        R.input
-          type: 'date'
-          className: 'form-control'
-          placeholder: 'Date'
-          name: 'date'
-          value: @state.date
-          onChange: @handleChange
-      R.div
-        className: 'form-group'
-        R.input
-          type: 'text'
-          className: 'form-control'
-          placeholder: 'Title'
-          name: 'title'
-          value: @state.title
-          onChange: @handleChange
-      R.div
-        className: 'form-group'
-        R.input
-          type: 'number'
-          className: 'form-control'
-          placeholder: 'Amount'
-          name: 'amount'
-          value: @state.amount
-          onChange: @handleChange
-      R.button
-        type: 'submit'
-        className: 'btn btn-primary'
-        disabled: !@valid()
-        'Create Record'
+    form className: 'form-inline', onSubmit: @handleSubmit,
+      div className: 'form-group',
+        input className: 'form-control', type: 'date', name: 'date', value: @state.date, placeholder: 'Date', onChange: @handleChange
+      div className: 'form-group',
+        input className: 'form-control', type: 'text', name: 'title', value: @state.title, placeholder: 'Title', onChange: @handleChange,
+      div className: 'form-group',
+        input className: 'form-control', type: 'number', name: 'amount', value: @state.amount, placeholder: 'Amount', onChange: @handleChange
+      button className: 'btn btn-primary', type: 'submit', disabled: !@valid(), 'Create Record',
+        
+        
+        
+        

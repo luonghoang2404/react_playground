@@ -42,16 +42,10 @@ RC = React.createElement
     @setState departments_data: departments
 
   render: ->
-    R.div null,
-      R.div
-        className: "nav-tabs-custom"
-        R.div
-          className: 'tab-content'
-          R.div
-            className: 'tab-pane active'
-            id: 'tab1'
+    div null,
+      div className: "nav-tabs-custom",
+        div className: 'tab-content',
+          div className: 'tab-pane active', id: 'tab1',
             RC Table, header: @state.employees_header, data: @state.employees_data, data_for_filter: @state.departments_filter, name: 'employee', new_employee: @handleNewEmployee
-          R.div
-            className: 'tab-pane'
-            id: 'tab2'
+          div className: 'tab-pane', id: 'tab2',
             RC Table, header: @state.departments_header, data: @state.departments_data, filter: @state.departments_filter, name: 'department', limit: @state.limit

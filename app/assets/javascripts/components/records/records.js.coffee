@@ -1,3 +1,5 @@
+{ hr, form, div, h2, h1, h3, h4, h5, table, thead, tbody, tr, th, td, a, i, input, select, option, span, button, img } = React.DOM
+RC = React.createElement
 @Records = React.createClass
   getInitialState: ->
     records: @props.data
@@ -35,27 +37,21 @@
     @replaceState records: records
 
   render: -> 
-    React.DOM.div
-      className: 'records'
-      React.DOM.h2
-        className: 'title'
-        'Records'
-      React.DOM.div
-        className: 'row'
-        React.createElement AmountBox, type: 'success', amount: @credits(), text: 'Credit'
-        React.createElement AmountBox, type: 'danger', amount: @debits(), text: 'Debit'
-        React.createElement AmountBox, type: 'info', amount: @balance(), text: 'Balance'
-      React.createElement RecordForm, handleNewRecord: @addRecord
-      React.DOM.hr null
-      React.DOM.table
-        className: 'table table-striped'
-        React.DOM.thead null,
-          React.DOM.tr
-            className: 'info'
-            React.DOM.th null, 'Date'
-            React.DOM.th null, 'Title'
-            React.DOM.th null, 'Amount'
-            React.DOM.th null, 'Actions'
-        React.DOM.tbody null,
+    div className: 'records',
+      h2 className: 'title', 'Records',
+      div className: 'row',
+        RC AmountBox, type: 'success', amount: @credits(), text: 'Credit'
+        RC AmountBox, type: 'danger', amount: @debits(), text: 'Debit'
+        RC AmountBox, type: 'info', amount: @balance(), text: 'Balance'
+      RC RecordForm, handleNewRecord: @addRecord
+      hr null
+      table className: 'table table-striped',
+        thead null,
+          tr className: 'info',
+            th null, 'Date'
+            th null, 'Title'
+            th null, 'Amount'
+            th null, 'Actions'
+        tbody null,
           for record in @state.records
-            React.createElement Record, key: record.id, record: record, handleDeleteRecord: @deleteRecord, handleEditRecord: @updateRecord
+            RC Record, key: record.id, record: record, handleDeleteRecord: @deleteRecord, handleEditRecord: @updateRecord
