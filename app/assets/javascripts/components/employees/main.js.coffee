@@ -1,3 +1,4 @@
+{ div, h3, h4, h5, table, thead, tbody, tr, th, td, a, i, input, select, option, span, button, img } = React.DOM
 R = React.DOM
 RC = React.createElement
 @Main = React.createClass
@@ -10,6 +11,7 @@ RC = React.createElement
     limit: 0
 
   loadCommentFromServer: ->
+    console.log 'load data from server'
     $.ajax
       type: 'GET'
       url: '/employees'
@@ -24,38 +26,25 @@ RC = React.createElement
 
   componentDidMount: ->
     @loadCommentFromServer()
+    # setInterval @loadCommentFromServer, 2000
 
   handleNewEmployee: (employee)->
+    # Add employee to the list
     employees = @state.employees_data
     employees.unshift(employee)
     @setState employees_data: employees
-
+    # Adjust number of employees for the department
     departments = @state.departments_data
     i = 0
     while departments[i][1] != employee[3]
       i += 1
-    
     departments[i][3] += 1
     @setState departments_data: departments
-    # @loadCommentFromServer()
 
   render: ->
     R.div null,
       R.div
         className: "nav-tabs-custom"
-        # R.ul
-        #   className: "nav nav-tabs"
-        #   R.li
-        #     className: 'active'
-        #     R.a
-        #       href:'#tab1'
-        #       'data-toggle': 'tab'
-        #       'Employees'
-        #   R.li null,
-        #     R.a
-        #       href:'#tab2'
-        #       'data-toggle': 'tab'
-        #       'Department'
         R.div
           className: 'tab-content'
           R.div

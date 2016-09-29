@@ -1,0 +1,94 @@
+.row
+  .col-md-4
+    .jumbotron
+        = react_component 'Transaction'
+  .col-md-4
+    .jumbotron
+      form#expense-entry-form.box.new-entry-form.entry-form action="/ski-trip/500I_DiQjWOp5SG081AH9RiNwJYkwFUM-2/entries/new/expense" data-parsley="" data-pjax="" data-prevent-dbl-submit="" method="post" name="new-entry" novalidate="" 
+        input name="_csrf_token" type="hidden" value="J3h6SSJXIyJhAjoCBRQ5b0UJKHchEAAAV4U9obPP6Lsndnm9wlcARQ==" /
+        .wrapped-form-group
+          .form-group.form-entry-party
+            select#entry-expense-party.form-control.add-select-picker.entry-party-selector data-parsley-id="7991" data-parsley-trigger="change" name="entry[party_id]" style=("display: none;") 
+              option selected="selected" value="220412"  Hoang
+              option value="220413"  Thao
+              option value="220414"  Huy
+              option value="220415"  Trung
+            .btn-group.bootstrap-select.form-control.add-select-picker.entry-party-selector
+              button.btn.dropdown-toggle.selectpicker.btn-default data-id="entry-expense-party" data-toggle="dropdown" title="Hoang" type="button" 
+                span.filter-option.pull-left> Hoang
+                |  
+                span.caret
+              .dropdown-menu.open
+                ul.dropdown-menu.inner.selectpicker role="menu" 
+                  li.selected data-original-index="0" 
+                    a data-normalized-text=("<span class=\"text\">Hoang</span>") tabindex="0" 
+                      span.text Hoang
+                      span.glyphicon.glyphicon-ok.check-mark
+                  li data-original-index="1" 
+                    a data-normalized-text=("<span class=\"text\">Thao</span>") tabindex="0" 
+                      span.text Thao
+                      span.glyphicon.glyphicon-ok.check-mark
+                  li data-original-index="2" 
+                    a data-normalized-text=("<span class=\"text\">Huy</span>") tabindex="0" 
+                      span.text Huy
+                      span.glyphicon.glyphicon-ok.check-mark
+                  li data-original-index="3" 
+                    a data-normalized-text=("<span class=\"text\">Trung</span>") tabindex="0" 
+                      span.text Trung
+                      span.glyphicon.glyphicon-ok.check-mark
+            span.help-block
+            span#parsley-id-7991.help-block
+          | paid for something.
+        input name="entry[entry_type]" type="hidden" value="expense" /
+        .form-group
+          label.control-label for="entry-expense-description"  What for?
+          input#entry-expense-description.form-control data-parsley-id="5797" data-parsley-trigger="change" name="entry[description]" placeholder=("Ski Pass") type="text" value="" /
+          span.help-block
+          span#parsley-id-5797.help-block
+        .form-group
+          label.control-label for="entry-expense-amount"  How much?
+          .input-group
+            .input-group-addon
+              span.currency-symbol ₫
+            input#entry-expense-amount.form-control data-parsley-id="7923" data-parsley-trigger="change" name="entry[amount]" placeholder=("Amount in VND") type="text" value="" /
+          span.help-block
+          span#parsley-id-7923.help-block
+        #entry-expense-parties.form-group.entry-parties-involved
+          label.control-label Split between:
+          .checkbox
+            label
+              input checked="checked" data-parsley-group="parties" data-parsley-id="5085" data-parsley-mincheck="1" data-parsley-multiple="entryparties_involved" data-parsley-trigger="change" name="entry[parties_involved][]" required="" type="checkbox" value="220412" /
+              | Hoang
+          .checkbox
+            label
+              input checked="checked" data-parsley-group="parties" data-parsley-id="5085" data-parsley-multiple="entryparties_involved" data-parsley-trigger="change" name="entry[parties_involved][]" type="checkbox" value="220413" /
+              | Thao
+          .checkbox
+            label
+              input checked="checked" data-parsley-group="parties" data-parsley-id="5085" data-parsley-multiple="entryparties_involved" data-parsley-trigger="change" name="entry[parties_involved][]" type="checkbox" value="220414" /
+              | Huy
+          .checkbox
+            label
+              input checked="checked" data-parsley-group="parties" data-parsley-id="5085" data-parsley-multiple="entryparties_involved" data-parsley-trigger="change" name="entry[parties_involved][]" type="checkbox" value="220415" /
+              | Trung
+          span.help-block
+          span#parsley-id-multiple-entryparties_involved.help-block
+        .form-group
+          label.control-label for="entry-date" 
+            | When?
+            span.label-optional Optional
+          .input-group
+            .input-group-addon
+              span.glyphicon.glyphicon-calendar
+            input#entry-date.form-control.entry-date-input data-parsley-id="5569" name="entry[entry_date]" placeholder=("e.g. 2016-09-28") type="date" value="" /
+          span.help-block
+          span#parsley-id-5569.help-block
+        .form-buttons
+          .form-group
+            button#entry-expense-add.btn.btn-md.btn-success data-after-submit-label="Adding..." data-event-action=("add entry submit") data-event-category="UI" type="submit" 
+              span.glyphicon.glyphicon-ok
+              | Add
+            a.btn.btn-default data-event-action=("add entry cancel") data-event-category="UI" data-pjax="" href="/ski-trip/500I_DiQjWOp5SG081AH9RiNwJYkwFUM-2" 
+              | Cancel
+            /! Workaround to avoid corrupted XHR2 request body in IE10 / IE11
+            input name="_dontcare" type="hidden" value="true" /

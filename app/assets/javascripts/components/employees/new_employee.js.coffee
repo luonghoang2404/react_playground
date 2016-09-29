@@ -1,3 +1,5 @@
+{ form, div, h3, h4, h5, table, tbody, tr, td, a, i, input, select, option, span, button, img } = React.DOM
+
 R = React.DOM
 RC = React.createElement
 @NewEmployee = React.createClass
@@ -24,35 +26,24 @@ RC = React.createElement
         @props.updateSignal data.record
         ).bind(this)
 
-
   render: ->
-    R.form
-      onSubmit: @handleSubmit
-      className: 'form-inline'
-      R.div
-        className: 'form-group'
-        R.input
-          onChange: @handleChange
+    form className: 'form-inline', onSubmit: @handleSubmit,
+      div className: 'form-group',
+        input
           className: 'form-control'
           type: 'text'
           name: 'name'
           value: @state.name
           placeholder: 'Please enter name'
-        R.select
-          name: 'department_id'
           onChange: @handleChange
-          className: 'form-control'
-          value: @state.department_id
+        select className: 'form-control', name: 'department_id', onChange: @handleChange, value: @state.department_id,
           for d, index in @props.departments
-            R.option 
-              key: d.id
-              value: d.id
-              d.name
-        R.button
-          type: 'submit'
-          className: 'btn btn-primary'
-          disabled: !@valid()
-          'Save'
+            option key: d.id, value: d.id, d.name,
+        button className: 'btn btn-primary', type: 'submit', disabled: !@valid(), 'Save',
+          
+          
+          
+          
 
 
 

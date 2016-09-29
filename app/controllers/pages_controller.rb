@@ -1,4 +1,8 @@
 class PagesController < ApplicationController
+
+  def index
+  end
+
   def home
     # @records = Record.all
     # @employees = Employee.includes(:department, :manager).all

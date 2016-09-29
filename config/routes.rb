@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :employees
   resources :comments
   root 'pages#home'
+  get 'test' => 'pages#test'
 
   resources :records
   # root 'records#index'

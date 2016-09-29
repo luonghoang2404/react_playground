@@ -1,4 +1,5 @@
-R = React.DOM
+{ div, h3, h4, h5, table, thead, tbody, tr, th, td, a, i, input, select, option, span, button, img } = React.DOM
+
 RC = React.createElement
 @Filter = React.createClass
   getInitialState: ->
@@ -7,21 +8,13 @@ RC = React.createElement
     @setState selected: e.target.value
     @props.changeFilter e.target.value
   render: ->
-    R.div
-      className: 'form-inline'
-      R.div
-        className: 'form-group'
-        R.input 
+    div className: 'form-inline',
+      div className: 'form-group',
+        input 
           className: 'form-control'
           value: 'Filter Department'
           disabled: true
-        R.select
-          className: 'form-control'
-          onChange: @handleFilter
-          value: @state.selected
+        select className: 'form-control', onChange: @handleFilter, value: @state.selected,
           for d, index in @props.data
-            R.option 
-              key: d.id
-              value: d.name
-              d.name
+            option key: d.id, value: d.name, d.name
 
