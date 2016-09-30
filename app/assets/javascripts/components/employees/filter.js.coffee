@@ -1,9 +1,11 @@
 @Filter = React.createClass
   getInitialState: ->
-    selected: @props.selected
+    selected: 0
+    
   handleFilter: (e)->
     @setState selected: e.target.value
     @props.changeFilter e.target.value
+
   render: ->
     div className: 'form-inline',
       div className: 'form-group',
@@ -13,5 +15,5 @@
           disabled: true
         select className: 'form-control', onChange: @handleFilter, value: @state.selected,
           for d, index in @props.data
-            option key: d.id, value: d.name, d.name
+            option key: d.id, value: d.id, d.name
 

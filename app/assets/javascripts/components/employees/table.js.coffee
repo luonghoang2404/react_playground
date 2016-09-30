@@ -5,7 +5,8 @@
     add_new: false
 
   updateFilter: (new_filter_value)->
-    @setState selected: new_filter_value
+    # @setState selected: new_filter_value
+    @props.changeDepartment new_filter_value
 
   updateLimit: (new_limit) ->
     @setState limit: new_limit
@@ -18,6 +19,9 @@
   toggle_new: ->
     value = !@state.add_new
     @setState add_new: value
+
+  handlePageChange: (page)->
+    @props.pageChange page
 
   render: ->
     div className: 'panel panel-success',
@@ -33,6 +37,9 @@
         else
           RC Slider, limit: @state.limit, updateLimit: @updateLimit, limit: @props.limit
       div className: 'panel-body',
+        if @props.name == 'employee'
+          div style: {textAlign: 'center'},
+            RC Pagination, total_pages: @props.total_pages,pageChange: @handlePageChange
         table className: 'table table-condensed table-striped',
           thead null,
             tr className: 'info',
@@ -45,5 +52,5 @@
                 if row[3] >= @state.limit
                   RC Row, key: row[0], data: row
               else
-                if @state.selected=='All' || @state.selected==row[3]
-                  RC Row, key: row[0], data: row
+                # if @state.selected=='All' || @state.selected==row[3]
+                RC Row, key: row[0], data: row

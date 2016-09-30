@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'kaminari'
 gem 'rails_12factor', group: :production
 gem 'faker'
 gem 'simple_form'

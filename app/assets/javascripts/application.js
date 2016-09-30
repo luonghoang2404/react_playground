@@ -19,9 +19,9 @@
 //= require components
 //= require_tree .
 
-var a, button, div, form, h1, h2, h3, h4, h5, i, img, input, option, p, ref, select, span, table, tbody, td, th, thead, tr, hr;
+var a, button, div, form, h1, h2, h3, h4, h5, i, img, input, option, p, ref, select, span, table, tbody, td, th, thead, tr, hr, ul, li;
 
-ref = React.DOM, div = ref.div, h1 = ref.h1, h2 = ref.h2, h3 = ref.h3, h4 = ref.h4, h5 = ref.h5, table = ref.table, thead = ref.thead, tbody = ref.tbody, tr = ref.tr, th = ref.th, td = ref.td, a = ref.a, i = ref.i, input = ref.input, select = ref.select, option = ref.option, span = ref.span, button = ref.button, img = ref.img, form = ref.form, p = ref.p, hr = ref.hr;
+ref = React.DOM, div = ref.div, h1 = ref.h1, h2 = ref.h2, h3 = ref.h3, h4 = ref.h4, h5 = ref.h5, table = ref.table, thead = ref.thead, tbody = ref.tbody, tr = ref.tr, th = ref.th, td = ref.td, a = ref.a, i = ref.i, input = ref.input, select = ref.select, option = ref.option, span = ref.span, button = ref.button, img = ref.img, form = ref.form, p = ref.p, hr = ref.hr, ul = ref.ul, li = ref.li;
 
 var RC;
 
