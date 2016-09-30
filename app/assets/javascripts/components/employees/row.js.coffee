@@ -2,5 +2,5 @@
   render: ->
     tr null,
       for item, index in @props.data
-        td key: index,
+        td key: 'row'+index,
           h4 null, item,

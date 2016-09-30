@@ -15,5 +15,5 @@
           disabled: true
         select className: 'form-control', onChange: @handleFilter, value: @state.selected,
           for d, index in @props.data
-            option key: d.id, value: d.id, d.name
+            option key: 'filter' + d.id, value: d.id, d.name
 

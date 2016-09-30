@@ -44,13 +44,13 @@
           thead null,
             tr className: 'info',
               for head, index in @props.header
-                th key: index,
+                th key: 'head'+index,
                   h4 null, head,
           tbody null,
-            for row in @props.data
+            for row, index in @props.data
               if @props.name == 'department'
                 if row[3] >= @state.limit
-                  RC Row, key: row[0], data: row
+                  RC Row, key: 'depart'+index, data: row
               else
                 # if @state.selected=='All' || @state.selected==row[3]
-                RC Row, key: row[0], data: row
+                RC Row, key: 'employee'+row[0], data: row
