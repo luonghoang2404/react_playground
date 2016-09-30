@@ -1,7 +1,3 @@
-{ form, div, h3, h4, h5, table, tbody, tr, td, a, i, input, select, option, span, button, img } = React.DOM
-
-R = React.DOM
-RC = React.createElement
 @NewEmployee = React.createClass
   getInitialState: ->
     name: ''

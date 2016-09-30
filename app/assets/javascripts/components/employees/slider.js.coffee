@@ -1,5 +1,3 @@
-{ div, h3, h4, h5, table, tbody, tr, td, a, i, input, select, option, span, button, img } = React.DOM
-RC = React.createElement
 @Slider = React.createClass
   getInitialState: ->
     limit: 0
